@@ -1,0 +1,25 @@
+<app-navbar></app-navbar>
+<div class="div-signin">
+  <form class="form-signin" #myForm="ngForm" (ngSubmit)="onSubmit(myForm.value)" novalidate>
+    <table class="table table-bordered table-hover">
+      <thead>
+        <tr>
+          <th width="15%">Name</th>
+           <th width="15%">Code</th>
+          <th width="20%">Exchanges</th>
+          <th width="30%">Company Profile</th>
+        </tr>
+      </thead>
+      <tbody>
+      <tr>
+        <td>{{name}}</td>
+        <td>{{code}}</td>
+        <td>{{exchange}}</td>
+        <td>{{profile}}</td>
+      </tr>
+      </tbody>
+    </table>
+    <button class="btn btn-lg btn-primary" style="width: 100px;" type="submit">Delete</button>
+  </form>
+</div>
+

@@ -1,0 +1,26 @@
+<app-navbar></app-navbar>
+<div class="div-signin">
+  <form class="form-signin" #myForm="ngForm" (ngSubmit)="onSubmit(myForm.value)" novalidate>
+    <table class="table table-bordered table-hover">
+      <thead>
+        <tr>
+          <th width="20%">Company Name</th>
+          <th width="20%">Stock Exchange</th>
+          <th width="20%">No. of records imported</th>
+          <th width="20%">From Date</th>
+          <th width="20%">To Date</th>
+        </tr>
+      </thead>
+      <tbody>
+      <tr>
+        <td>Abc LTD</td>
+        <td>BSE</td>
+        <td>80</td>
+        <td>2020/05/03</td>
+        <td>2020/05/03</td>
+      </tr>
+      </tbody>
+    </table>
+    <button class="btn btn-lg btn-primary" style="width: 100px;" type="submit">Upload</button>
+  </form>
+</div>

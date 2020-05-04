@@ -1,0 +1,12 @@
+<app-navbar></app-navbar>
+<div class="div-signin">
+  <form class="form-signin" #myForm="ngForm" (ngSubmit)="onSubmit(myForm.value)" novalidate>
+    <h1 class="h3 mb-3 font-weight-normal">List of  Stock  Exchanges</h1>
+    <table class="form-control">
+      <tbody class="bodyStyle">
+        <tr>{{stock}}</tr>
+      </tbody>
+    </table>
+    <button class="btn btn-lg btn-primary btn-block" type="submit">Add</button>
+  </form>
+</div>

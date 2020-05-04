@@ -1,0 +1,22 @@
+<div class="div-signin">
+  <form class="form-signin" #myForm="ngForm" (ngSubmit)="onSubmit(myForm.value)" novalidate>
+    <h1 class="h3 mb-3 font-weight-normal">Please sign up</h1>
+
+    <p *ngFor="let alert of alerts">
+      <ngb-alert [type]="alert.type" (close)="close(alert)">{{ alert.message }}</ngb-alert>
+    </p>
+    <!-- bootstrap utilities/screenreaders   -->
+    <label for="inputEmail" class="sr-only">E-mail</label>
+    <input ngModel name="email" id="inputEmail" class="form-control" placeholder="E-mail" type="text">
+    <label for="inputPassword" class="sr-only">Password</label>
+    <input ngModel name="password" type="password" id="inputPassword" class="form-control" placeholder="Password" >
+    <label for="inputPasswordConfirm" class="sr-only">Confirm Password</label>
+    <input ngModel name="passwordConfirm" type="password" id="inputPasswordConfirm" class="form-control" placeholder="Confirm Password" >
+    <label for="inputUsername" class="sr-only">User name</label>
+    <input ngModel name="name" id="inputUsername" class="form-control" placeholder="UserName" type="text">
+    <label for="inputMobile" class="sr-only">Mobile number</label>
+    <input ngModel name="mobile" id="inputMobile" class="form-control" placeholder="Mobile number" type="text">
+    <button class="btn btn-lg btn-primary btn-block" type="submit">Sign up</button>
+    <div class="link"><a [routerLink]="['/sign-in']">Sign in to an existing account</a></div>
+  </form>
+</div>

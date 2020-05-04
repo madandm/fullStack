@@ -1,0 +1,43 @@
+.div-search {
+  margin-top: 50px;
+  border:0;padding:0;
+}
+.form-signin {
+  width: 100%;
+  max-width: 330px;
+  padding: 15px;
+  margin: auto;
+}
+.form-signin .form-control {
+  position: relative;
+  box-sizing: border-box;
+  height: auto;
+  padding: 10px;
+  font-size: 16px;
+}
+.input[type="text"] {
+  padding-left: 40px;
+  padding-top: 12px;
+  padding-bottom: 12px;
+  margin-bottom: 10px;
+}
+.title{
+  line-height: 37px;
+  font-size: 1.2em;
+  text-align: center;
+  font-family: \5FAE\8F6F\96C5\9ED1;
+    background: url(src/assets/img/m_title_bg.png) no-repeat;
+    overflow: hidden;
+}
+.sub-cont-0{
+  margin-top: 10px;
+  font-family: tahoma;
+  border: 1px solid rgb(180, 180, 180);
+  position: relative;
+}
+.company_details{
+  overflow: hidden;
+  color: #333;
+  font-size: 12px;
+  padding: 10px;
+}

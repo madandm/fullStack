@@ -1,0 +1,36 @@
+<app-navbar></app-navbar>
+<div class="div-signin">
+  <form class="form-signin" #myForm="ngForm" (ngSubmit)="onSubmit(myForm.value)" novalidate>
+    <h1 class="h3 mb-3 font-weight-normal">List of  Companys</h1>
+    <table class="table table-bordered table-hover">
+      <thead>
+        <tr>
+          <th width="5%">
+            <input type="checkbox" ng-model="all"/>
+          </th>
+          <th width="15%">Name</th>
+           <th width="15%">Code</th>
+          <th width="20%">Exchanges</th>
+          <th width="30%">Company Profile</th>
+          <th width="15%">Options</th>
+        </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let name of names; let i=index">
+        <td><input type="checkbox" ng-checkee="all"/></td>
+        <td>{{name}}</td>
+        <td>{{codes[i]}}</td>
+        <td>{{exchanges[i]}}</td>
+        <td>{{profile[i]}}</td>
+        <td><button class="btn btn-primary" type="buttton" (click)="editCompany(name)">edit</button></td>
+      </tr>
+      </tbody>
+    </table>
+    <div>
+      <ngb-pagination [collectionSize]="70" [(page)]="page" aria-label="Default pagination"></ngb-pagination>
+    </div>
+    <button class="btn btn-lg btn-primary" style="width: 100px;" type="buttton" (click)='addCompany()'>Add</button>&nbsp;
+    <button class="btn btn-lg btn-primary" style="width: 100px;" type="submit">Delete</button>
+  </form>
+</div>
+

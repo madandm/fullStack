@@ -1,0 +1,21 @@
+.div-signin {
+  margin-top: 50px;
+  text-align: center;
+  align-items: center;
+}
+.form-signin {
+  width: 100%;
+  max-width: 350px;
+  padding: 15px;
+  margin: auto;
+}
+.input{
+  margin-bottom: 10px;
+}
+.link {
+  padding: 10px;
+  text-align: left;
+  color: black;
+  margin-bottom: 10px;
+  text-decoration:underline;
+}

@@ -1,0 +1,9 @@
+<app-navbar></app-navbar>
+<div class="div-signin">
+  <form class="form-signin" #myForm="ngForm" (ngSubmit)="onSubmit(myForm.value)" novalidate>
+    <h1 class="h3 mb-3 font-weight-normal">Add New Exchange</h1>
+    <label for="inputExchangename" class="sr-only">Exchange Name</label>
+    <input ngModel name="name" id="inputExchangename" class="form-control" placeholder="Exchange Name" type="text">
+    <button class="btn btn-lg btn-primary btn-block" type="submit">Confirm</button>
+  </form>
+</div>

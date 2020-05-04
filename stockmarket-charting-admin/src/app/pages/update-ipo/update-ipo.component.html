@@ -1,0 +1,14 @@
+<app-navbar></app-navbar>
+<div class="div-signin">
+  <form class="form-signin" #myForm="ngForm" (ngSubmit)="onSubmit(myForm.value)" novalidate>
+    <h1 class="h3 mb-3 font-weight-normal">Update  IPO related data</h1>
+    <input ngModel name="id" id="inputId" class="form-control" placeholder="Id" type="text">
+    <input ngModel name="companyname" id="inputCompanyname" class="form-control" placeholder="Company Name" type="text">
+    <input ngModel name="exchange" id="inputExchange" class="form-control" placeholder="Stock Exchange" type="text">
+    <input ngModel name="price" id="inputPrice" class="form-control" placeholder="Price per share" type="text">
+    <input ngModel name="shares" id="inputShares" class="form-control" placeholder="Total number of Shares" type="text">
+    <input ngModel name="date" id="inputDate" class="form-control" placeholder="Open Date Time" type="text">
+    <input ngModel name="remarks" id="inputRemarks" class="form-control" placeholder="Remarks" type="text">
+    <button class="btn btn-lg btn-primary btn-block" type="submit">Save</button>
+  </form>
+</div>
