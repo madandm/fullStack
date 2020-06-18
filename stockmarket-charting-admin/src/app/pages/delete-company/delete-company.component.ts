@@ -1,34 +1,39 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import {UserService} from '../../services/user.service';
+import {ManageCompanyService} from '../../services/manageCompany.service';
+import { ActivatedRoute  } from '@angular/router';
 @Component({
   selector: 'app-delete-company',
   templateUrl: './delete-company.component.html',
   styleUrls: ['./delete-company.component.css']
 })
 export class DeleteCompanyComponent implements OnInit {
-  name: any;
-  code: any;
-  exchange: any;
-  profile: any;
-  constructor( private router: Router , private userService: UserService) {
+  public companyName: any;
+  public companyCode: any;
+  public exchangeId: any;
+  public brief: any;
 
+  constructor(private manageCompanyService: ManageCompanyService, public activeRoute: ActivatedRoute, private router: Router) {
+
+    this.activeRoute.queryParams.subscribe(params => {
+      this.companyName = params.companyName;
+      this.companyCode = params.companyCode;
+      this.exchangeId = params.exchangeId;
+      this.brief = params.brief;
+    });
   }
 
   ngOnInit(): void {
-    this.userService.postDeleteCompany().subscribe(
-      data => {
-        console.log(JSON.stringify(data));
-        const info: any = data;
-        this.name = info.name;
-        this.code = info.code;
-        this.exchange = info.exchange;
-        this.profile = info.profile;
-      }
-    );
+    if (!sessionStorage.getItem('token')) {
+      this.router.navigate(['/sign-in']);
+    }
   }
 
-  onSubmit(value: any): void {
-    this.router.navigate(['/mangeCompany']);
+  onSubmit(): void {
+    this.manageCompanyService.postDeleteCompany(this.companyName).subscribe(
+      data => {
+        this.router.navigate(['/mangeCompany']);
+      }
+    );
   }
 }

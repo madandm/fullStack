@@ -31,16 +31,18 @@ export class SignInComponent implements OnInit {
     if (this.validInput(value)) {
       this.userService.postSignIn(value).subscribe(
         data => {
-          console.log(JSON.stringify(data));
+          console.log('data:' + JSON.stringify(data));
           const info: any = data;
-          if (200 === info.code) {
-              console.log('Login Success，jump to menu');
-              this.router.navigate(['/compare']);
+          if (info.access_token != null) {
+            sessionStorage.setItem('username', value.name);
+            sessionStorage.setItem('token', 'Bearer' + info.access_token);
+            this.router.navigate(['/compare']);
           } else {
-            console.log('Login Fail，warning msg');
             this.alerts.push({type : 'danger', message: 'username or password error!'});
-
           }
+        },
+        error => {
+          this.alerts.push({type : 'danger', message: 'username or password error!'});
         }
       );
     }

@@ -2,14 +2,14 @@
 <div class="div-signin">
   <form class="form-signin" #myForm="ngForm" (ngSubmit)="onSubmit(myForm.value)" novalidate>
     <h1 class="h3 mb-3 font-weight-normal">Create New Company</h1>
-    <input ngModel name="companyname" id="inputCompanyName" class="form-control" placeholder="Company Name" type="text">
-    <input ngModel name="turnover" id="inputTurnover" class="form-control" placeholder="Turnover" type="text">
+    <input ngModel name="companyName" id="inputCompanyName" class="form-control" placeholder="Company Name" type="text">
+    <input ngModel name="turnOver" id="inputTurnover" class="form-control" placeholder="Turnover" type="text">
     <input ngModel name="ceo" id="inputCEO" class="form-control" placeholder="CEO" type="text">
-    <input ngModel name="directors" id="inputDirectors" class="form-control" placeholder="Board of Directors" type="text">
-    <input ngModel name="exchanges" id="inputExchanges" class="form-control" placeholder="Stock Exchanges" type="text">
-    <input ngModel name="sector" id="inputSector" class="form-control" placeholder="Sector" type="text">
-    <input ngModel name="writeup" id="inputBrief" class="form-control" placeholder="Brief writeup" type="text">
-    <input ngModel name="code" id="inputCode" class="form-control" placeholder="Stock Code" type="text">
+    <input ngModel name="boardOfDrectors" id="inputDirectors" class="form-control" placeholder="Board of Directors" type="text">
+    <input ngModel name="exchangeId" id="inputExchanges" class="form-control" placeholder="Stock Exchanges" type="text">
+    <input ngModel name="sectorId" id="inputSector" class="form-control" placeholder="Sector" type="text">
+    <input ngModel name="brief" id="inputBrief" class="form-control" placeholder="Brief writeup" type="text">
+    <input ngModel name="companyCode" id="inputCode" class="form-control" placeholder="Stock Code" type="text">
     <button class="btn btn-lg btn-primary btn-block" type="submit">Save</button>
   </form>
 </div>

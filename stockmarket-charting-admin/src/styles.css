@@ -1,6 +1,6 @@
 /* You can add global styles to this file, and also import other style files */
-@import 'bootstrap/dist/css/bootstrap.css';
-@import 'bootstrap-fileinput/css/fileinput.css';
+@import '~bootstrap/dist/css/bootstrap.css';
+@import '~bootstrap-fileinput/css/fileinput.css';
 
 /* 基础样式定义 */
 html, body {

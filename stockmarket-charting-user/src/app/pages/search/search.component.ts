@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import {UserService} from '../../services/user.service';
-
+import {CompanyService} from '../../services/company.service';
+import {StockPriceService} from '../../services/stockprice.service';
+import { Router } from '@angular/router';
 interface Alert {
   type: string;
   message: string;
@@ -31,40 +32,140 @@ export class SearchComponent implements OnInit {
   public weekPeriod;
   flag = false;
   alerts: Alert[];
-  constructor(private userService: UserService) {
+  chartOption1: any;
+  chartOption2: any;
+  chartOption3: any;
+  constructor(private router: Router , private companyService: CompanyService , private  stockPriceService: StockPriceService) {
   }
 
   ngOnInit() {
+    if (!sessionStorage.getItem('token')) {
+      this.router.navigate(['/sign-in']);
+    }
   }
   /* Search */
   onSubmit(value: any) {
       this.flag = false;
-      this.userService.postSearch(value).subscribe(
+      this.companyService.postSearch(value.name).subscribe(
         data => {
           console.log(JSON.stringify(data));
           const info: any = data;
-          if (0 === info.count) {
-              console.log('There is no company match!');
-              this.alerts.push({type : 'danger', message: 'There is no company match!'});
+          if (!info.companyName) {
+              this.alerts.push({type : 'info', message: 'There is no company match!'});
           } else {
             this.flag = true;
             console.log('There is company match!');
+            this.name = info.companyName;
+            this.code = info.companyCode;
+            this.turnover = info.turnOver;
+            this.ceo = info.ceo;
+            this.directors = info.boardOfDrectors;
+            this.exchanges = info.exchangeName;
+            this.sector = info.sectorName;
+            this.profile = info.brief;
           }
-          this.name = info.company.name;
-          this.price = info.company.price;
-          this.code = info.company.code;
-          this.turnover = info.company.turnover;
-          this.ceo = info.company.ceo;
-          this.directors = info.company.directors;
-          this.exchanges = info.company.exchanges;
-          this.sector = info.company.sector;
-          this.profile = info.company.profile;
-          this.dayPrice = info.stockPrice.dayPrice;
-          this.weekPrice = info.stockPrice.weekPrice;
-          this.monthPrice = info.stockPrice.monthPrice;
-          this.dayPeriod = info.stockPrice.dayPeriod;
-          this.monthPeriod = info.stockPrice.monthPeriod;
-          this.weekPeriod = info.stockPrice.weekPeriod;
+        }
+      );
+
+      this.stockPriceService.postEcharSearch(value.name).subscribe(
+        data1 => {
+          console.log(JSON.stringify(data1));
+          const info: any = data1;
+          this.flag = true;
+          this.dayPrice = info.dayPrice;
+          this.weekPrice = info.weekPrice;
+          this.monthPrice = info.monthPrice;
+          this.dayPeriod = info.dayPeriod;
+          this.weekPeriod = info.weekPeriod;
+          this.monthPeriod = info.monthPeriod;
+          this.price = info.price;
+          this.chartOption1 = {
+            tooltip: {
+                trigger: 'axis',
+                axisPointer: {
+                    type: 'cross',
+                    crossStyle: {
+                        color: '#999'
+                    }
+                }
+            },
+            toolbox: {
+              feature: {
+                  saveAsImage: {show: true}
+              }
+          },
+              xAxis: {
+                data: this.dayPeriod
+            },
+            yAxis: {
+            },
+            series: [{
+              type: 'k',
+              data: this.dayPrice,
+              itemStyle: {
+                color0: '#14b143',
+                borderColor0: '#14b143'
+              }
+              }]
+          };
+          this.chartOption2 = {
+            tooltip: {
+                trigger: 'axis',
+                axisPointer: {
+                    type: 'cross',
+                    crossStyle: {
+                        color: '#999'
+                    }
+                }
+            },
+            toolbox: {
+              feature: {
+                  saveAsImage: {show: true}
+              }
+          },
+              xAxis: {
+                data: this.weekPeriod
+            },
+            yAxis: {
+            },
+            series: [{
+              type: 'k',
+              data: this.weekPrice,
+              itemStyle: {
+                color0: '#14b143',
+                borderColor0: '#14b143'
+              }
+              }]
+          };
+          this.chartOption3 = {
+            tooltip: {
+                trigger: 'axis',
+                axisPointer: {
+                    type: 'cross',
+                    crossStyle: {
+                        color: '#999'
+                    }
+                }
+            },
+            toolbox: {
+              feature: {
+                  saveAsImage: {show: true}
+              }
+          },
+              xAxis: {
+                data: this.monthPeriod
+            },
+            yAxis: {
+            },
+            series: [{
+              type: 'k',
+              data: this.monthPrice,
+              itemStyle: {
+                color0: '#14b143',
+                borderColor0: '#14b143'
+              }
+              }]
+          };
         }
       );
 

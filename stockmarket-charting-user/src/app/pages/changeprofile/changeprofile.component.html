@@ -1,13 +1,16 @@
 <app-navbar></app-navbar>
 <div class="div-signin">
   <form class="form-signin" #myForm="ngForm" (ngSubmit)="onSubmit(myForm.value)" novalidate>
+    <p *ngFor="let alert of alerts">
+      <ngb-alert [type]="alert.type" (close)="close(alert)">{{ alert.message }}</ngb-alert>
+    </p>
     <div class="div-h"><h1 class="h3 mb-3 font-weight-normal">Change your Profile</h1></div>
     <div class="div-title">E-mail</div>
     <label for="inputEmail" class="sr-only">email</label>
-    <input ngModel name="email" type="text" class="form-control">
+    <input ngModel name="email" type="text" class="form-control" value={{email}}>
     <div class="div-title">Mobile</div>
     <label for="inputMobile" class="sr-only">mobile</label>
-    <input ngModel name="mobile" type="text" class="form-control">
+    <input ngModel name="mobileNum" type="text" class="form-control" value={{mobileNum}}>
     <button class="btn btn-lg btn-primary btn-block" type="submit">Save</button>
   </form>
 </div>

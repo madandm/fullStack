@@ -3,21 +3,21 @@
   <form class="form-signin" #myForm="ngForm" (ngSubmit)="onSubmit(myForm.value)" novalidate>
     <h1 class="h3 mb-3 font-weight-normal">Edit the compay</h1>
     <div class="div-title">Company Name</div>
-    <input ngModel name="companyname" id="inputCompanyName" class="form-control" type="text">
+    <input ngModel name="companyname" id="inputCompanyName" class="form-control" type="text" value={{companyname}}>
     <div class="div-title">Turnover</div>
-    <input ngModel name="turnover" id="inputTurnover" class="form-control" type="text">
+    <input ngModel name="turnOver" id="inputTurnover" class="form-control" type="text" value={{turnOver}}>
     <div class="div-title">CEO</div>
-    <input ngModel name="ceo" id="inputCEO" class="form-control" type="text">
+    <input ngModel name="ceo" id="inputCEO" class="form-control" type="text" value={{ceo}}>
     <div class="div-title">Board of Directors</div>
-    <input ngModel name="directors" id="inputDirectors" class="form-control" type="text">
+    <input ngModel name="boardOfDrectors" id="inputDirectors" class="form-control" type="text" value={{boardOfDrectors}}>
     <div class="div-title">Stock Exchanges</div>
-    <input ngModel name="exchanges" id="inputExchanges" class="form-control" type="text">
+    <input ngModel name="exchangeId" id="inputExchanges" class="form-control" type="text" value={{exchangeId}}>
     <div class="div-title">Sector</div>
-    <input ngModel name="sector" id="inputSector" class="form-control" type="text">
+    <input ngModel name="sectorId" id="inputSector" class="form-control" type="text" value={{sectorId}}>
     <div class="div-title">Brief writeup</div>
-    <input ngModel name="writeup" id="inputBrief" class="form-control" type="text">
+    <input ngModel name="brief" id="inputBrief" class="form-control" type="text" value={{brief}}>
     <div class="div-title">Stock Code</div>
-    <input ngModel name="code" id="inputCode" class="form-control" type="text">
+    <input ngModel name="companyCode" id="inputCode" class="form-control" type="text" value={{companyCode}}>
     <button class="btn btn-lg btn-primary btn-block" type="submit">Save</button>
   </form>
 </div>

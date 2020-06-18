@@ -2,9 +2,7 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import {SignInComponent} from './pages/sign-in/sign-in.component';
 import { AddcompanyComponent } from './pages/addcompany/addcompany.component';
-import { AddcompanycomfirmComponent } from './pages/addcompanycomfirm/addcompanycomfirm.component';
 import { AddNewComponent } from './pages/add-new/add-new.component';
-import { AddNewConfirmComponent } from './pages/add-new-confirm/add-new-confirm.component';
 import { DeleteCompanyComponent } from './pages/delete-company/delete-company.component';
 import { EditcompanyComponent } from './pages/editcompany/editcompany.component';
 import { MangeStockComponent } from './pages/mange-stock/mange-stock.component';
@@ -16,10 +14,8 @@ const routes: Routes = [
   { path: 'sign-in', component: SignInComponent },
   { path: 'mangeStock', component: MangeStockComponent},
   { path: 'add', component: AddNewComponent},
-  { path: 'confirm', component: AddNewConfirmComponent},
   { path: 'mangeCompany', component: MangeCompanyComponent},
   { path: 'addCompany', component: AddcompanyComponent},
-  { path: 'addCompanyConfirm', component: AddcompanycomfirmComponent},
   { path: 'deleteCompany', component: DeleteCompanyComponent},
   { path: 'editCompany', component: EditcompanyComponent},
   { path: 'updateIPO', component: UpdateIPOComponent},

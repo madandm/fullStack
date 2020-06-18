@@ -53,15 +53,15 @@
     <ul ngbNav #nav="ngbNav" class="nav-tabs">
       <li ngbNavItem>
         <a ngbNavLink>Day</a>
-        <ng-template ngbNavContent><app-echart [dayPrice]="dayPrice" [dayPeriod]="dayPeriod"></app-echart></ng-template>
+        <ng-template ngbNavContent><div class="div-echart" echarts [options] = "chartOption1"></div></ng-template>
       </li>
       <li ngbNavItem>
         <a ngbNavLink>Week</a>
-        <ng-template ngbNavContent><app-echart [weekPrice]="weekPrice" [weekPeriod]="weekPeriod"></app-echart></ng-template>
+        <ng-template ngbNavContent><div class="div-echart" echarts [options] = "chartOption2"></div></ng-template>
       </li>
       <li ngbNavItem>
         <a ngbNavLink>Month</a>
-        <ng-template ngbNavContent><app-echart [monthPrice]="monthPrice" [monthPeriod]="monthPeriod"></app-echart></ng-template>
+        <ng-template ngbNavContent><div class="div-echart" echarts [options] = "chartOption3"></div></ng-template>
       </li>
     </ul>
     <div [ngbNavOutlet]="nav"></div>

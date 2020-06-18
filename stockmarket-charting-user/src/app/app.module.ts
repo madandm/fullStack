@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HttpClientJsonpModule } from '@angular/common/http';
 
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import {NgxEchartsModule} from 'ngx-echarts';
@@ -16,7 +16,6 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { MoneyPipe } from './pipe/money.pipe';
 import { ChangepwdComponent } from './pages/changepwd/changepwd.component';
 import { ChangeProfileComponent } from './pages/changeprofile/changeprofile.component';
-import { EchartComponent } from './component/echart/echart.component';
 import { SearchComponent } from './pages/search/search.component';
 import { StockManageComponent } from './pages/stock/stock-manage/stock-manage.component';
 import { EcharcompareComponent } from './pages/echarcompare/echarcompare.component';
@@ -32,7 +31,6 @@ import { EcharcompareComponent } from './pages/echarcompare/echarcompare.compone
     CompareComponent,
     ChangepwdComponent,
     ChangeProfileComponent,
-    EchartComponent,
     SearchComponent,
     EcharcompareComponent,
     StockManageComponent
@@ -41,6 +39,7 @@ import { EcharcompareComponent } from './pages/echarcompare/echarcompare.compone
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
+    HttpClientJsonpModule,
     NgbModule,
     FormsModule,
     ReactiveFormsModule,

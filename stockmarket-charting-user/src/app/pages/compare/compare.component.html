@@ -2,6 +2,9 @@
 <div class="div-signin">
   <form class="form-signin" #myForm="ngForm" (ngSubmit)="onSubmit(myForm.value)" novalidate>
     <h1 class="h3 mb-3 font-weight-normal">Compare company</h1>
+    <p *ngFor="let alert of alerts">
+      <ngb-alert [type]="alert.type" (close)="close(alert)">{{ alert.message }}</ngb-alert>
+    </p>
     <label for="inputCompanyname" class="sr-only">CompanyNmae/Code</label>
     <input ngModel name="name1" id="inputCompanyname" class="form-control" placeholder="CompanyName/Code" type="text">
 		<div class="form-group ">

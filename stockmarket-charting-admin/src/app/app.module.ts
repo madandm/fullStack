@@ -11,9 +11,7 @@ import { SignInComponent } from './pages/sign-in/sign-in.component';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { MoneyPipe } from './pipe/money.pipe';
 import { AddcompanyComponent } from './pages/addcompany/addcompany.component';
-import { AddcompanycomfirmComponent } from './pages/addcompanycomfirm/addcompanycomfirm.component';
 import { AddNewComponent } from './pages/add-new/add-new.component';
-import { AddNewConfirmComponent } from './pages/add-new-confirm/add-new-confirm.component';
 import { DeleteCompanyComponent } from './pages/delete-company/delete-company.component';
 import { EditcompanyComponent } from './pages/editcompany/editcompany.component';
 import { MangeStockComponent } from './pages/mange-stock/mange-stock.component';
@@ -29,9 +27,7 @@ import { UploadSummaryComponent } from './pages/upload-summary/upload-summary.co
     SignInComponent,
     MoneyPipe,
     AddcompanyComponent,
-    AddcompanycomfirmComponent,
     AddNewComponent,
-    AddNewConfirmComponent,
     DeleteCompanyComponent,
     EditcompanyComponent,
     MangeStockComponent,

@@ -2,6 +2,9 @@
 <div class="div-signin">
   <form class="form-signin" #myForm="ngForm" (ngSubmit)="onSubmit(myForm.value)" novalidate>
     <h1 class="h3 mb-3 font-weight-normal">Update  IPO related data</h1>
+    <p *ngFor="let alert of alerts">
+      <ngb-alert [type]="alert.type" (close)="close(alert)">{{ alert.message }}</ngb-alert>
+    </p>
     <input ngModel name="id" id="inputId" class="form-control" placeholder="Id" type="text">
     <input ngModel name="companyname" id="inputCompanyname" class="form-control" placeholder="Company Name" type="text">
     <input ngModel name="exchange" id="inputExchange" class="form-control" placeholder="Stock Exchange" type="text">

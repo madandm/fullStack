@@ -1,6 +1,6 @@
 <app-navbar></app-navbar>
 <div class="div-signin">
-  <form class="form-signin" #myForm="ngForm" (ngSubmit)="onSubmit(myForm.value)" novalidate>
+  <form class="form-signin" #myForm="ngForm" (ngSubmit)="onSubmit()" novalidate>
     <table class="table table-bordered table-hover">
       <thead>
         <tr>
@@ -12,10 +12,10 @@
       </thead>
       <tbody>
       <tr>
-        <td>{{name}}</td>
-        <td>{{code}}</td>
-        <td>{{exchange}}</td>
-        <td>{{profile}}</td>
+        <td>{{companyName}}</td>
+        <td>{{companyCode}}</td>
+        <td>{{exchangeId}}</td>
+        <td>{{brief}}</td>
       </tr>
       </tbody>
     </table>

@@ -2,8 +2,11 @@
 <div class="div-signin">
   <form class="form-signin" #myForm="ngForm" (ngSubmit)="onSubmit(myForm.value)" novalidate>
     <h1 class="h3 mb-3 font-weight-normal">Add New Exchange</h1>
-    <label for="inputExchangename" class="sr-only">Exchange Name</label>
-    <input ngModel name="name" id="inputExchangename" class="form-control" placeholder="Exchange Name" type="text">
+    <input ngModel name="exchangeId" id="inputExchangeId" class="form-control" placeholder="Exchange ID" type="text">
+    <input ngModel name="exchangeName" id="inputExchangename" class="form-control" placeholder="Exchange Name" type="text">
+    <input ngModel name="brief" id="inputBrief" class="form-control" placeholder="Brief" type="text">
+    <input ngModel name="contactAddr" id="inputContactAddr" class="form-control" placeholder="Contact Addr" type="text">
+    <input ngModel name="remarks" id="inputRemarks" class="form-control" placeholder="Remarks" type="text">
     <button class="btn btn-lg btn-primary btn-block" type="submit">Confirm</button>
   </form>
 </div>

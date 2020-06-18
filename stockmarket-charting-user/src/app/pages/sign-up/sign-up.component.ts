@@ -25,18 +25,14 @@ export class SignUpComponent implements OnInit {
  /* 登录操作 */
   onSubmit(value: any) {
     if (this.validInput(value)) {
-      this.userService.postSignIn(value).subscribe(
+      this.userService.postSignUp(value).subscribe(
         data => {
           console.log(JSON.stringify(data));
           const info: any = data;
-          if (200 === info.code) {
-              console.log('Login Success，jump to menu');
-              this.router.navigate(['/products']);
-          } else {
-            console.log('Login Fail，warning msg');
-            this.alerts.push({type : 'danger', message: 'username or password error!'});
-
-          }
+          this.router.navigate(['/sign-in']);
+        },
+        error => {
+          this.alerts.push({type : 'danger', message: 'username or password error!'});
         }
       );
     }
@@ -69,14 +65,18 @@ export class SignUpComponent implements OnInit {
       return false;
     }
 
-    // tslint:disable-next-line: triple-equals
-    if (value.passwordConfirm != value.password) {
-      this.alerts.push({type : 'danger', message: 'password not the same one'});
+    if (value.password !== value.passwordConfirm) {
+      this.alerts.push({type : 'danger', message: 'password not match!'});
       return false;
     }
 
     if (!value.name) {
       this.alerts.push({type : 'danger', message: 'username required!'});
+      return false;
+    }
+
+    if (!value.mobile) {
+      this.alerts.push({type : 'danger', message: 'mobile required!'});
       return false;
     }
 

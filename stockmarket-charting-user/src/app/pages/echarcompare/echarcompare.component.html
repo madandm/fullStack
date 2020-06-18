@@ -1,1 +1,7 @@
-<app-echart [name1]="name1" [name2]="name2" [dayPrice]="dayPrice" [dayPeriod]="dayPeriod"></app-echart>
+<app-navbar></app-navbar>
+<div style="text-align: center;">{{name1}}</div>
+<div class="div-echart" echarts [options] = "chartOption1"></div>
+<div *ngIf="flag">
+  <div style="text-align: center;">{{name2}}</div>
+  <div class="div-echart" style="margin-top: -2em;" echarts [options] = "chartOption2"></div>
+</div>

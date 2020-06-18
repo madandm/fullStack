@@ -1,9 +1,11 @@
 import { Injectable } from '@angular/core';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
 import {environment} from '../../environments/environment';
+const username = 'cloudsimpleservice';
+const password = 'mysecret';
 
 const httpOptions = {
-  headers: new HttpHeaders({ 'Content-Type': 'application/json' })
+  headers: new HttpHeaders({ 'Content-Type': 'application/json', Authorization: 'Basic ' + btoa(username + ':' + password) })
 };
 
 @Injectable({
@@ -14,27 +16,19 @@ export class UserService {
   constructor(private http: HttpClient) { }
 
   postSignIn(user) {
-    /*return this.http.post(`${environment.baseUrl}/login`, JSON.stringify(user), httpOptions);*/
-    return this.http.post('http://mock-api.com/wz2l7knL.mock/login', JSON.stringify(user), httpOptions);
+    return this.http.post(`${environment.baseTokenUrl}/api/cloud-auth-service/auth/oauth/token` + `?grant_type=password&scope=webclient&username=${user.name}&password=${user.password}`, JSON.stringify(user), httpOptions);
   }
 
-  postSignUp(user) {
-    /*return this.http.post(`${environment.baseUrl}/login`, JSON.stringify(user), httpOptions);*/
-    return this.http.post('http://mock-api.com/wz2l7knL.mock/login', JSON.stringify(user), httpOptions);
-  }
-
-  postSearch(info) {
-    /*return this.http.post(`${environment.baseUrl}/login`, JSON.stringify(user), httpOptions);*/
-    return this.http.post('http://mock-api.com/wz2l7knL.mock/search', JSON.stringify(info), httpOptions);
-  }
-
-  postCompare(info) {
-    /*return this.http.post(`${environment.baseUrl}/login`, JSON.stringify(user), httpOptions);*/
-    return this.http.post('http://mock-api.com/wz2l7knL.mock/compare', JSON.stringify(info), httpOptions);
-  }
-  postEcharcompare(info) {
-    /*return this.http.post(`${environment.baseUrl}/login`, JSON.stringify(user), httpOptions);*/
-    return this.http.post('http://mock-api.com/wz2l7knL.mock/echart', JSON.stringify(info), httpOptions).toPromise;
+  postSignUp(value) {
+    const user =
+    {
+      email : value.email,
+      password: value.password,
+      userName: value.name,
+      mobile: value.mobile
+    };
+    return this.http.post(`${environment.baseTokenUrl}/api/cloud-user-service/api/user/regist`,
+    JSON.stringify(user), httpOptions);
   }
 
 }

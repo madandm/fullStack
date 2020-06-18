@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import {UserService} from '../../services/user.service';
+import {ManageCompanyService} from '../../services/manageCompany.service';
 @Component({
   selector: 'app-mange-company',
   templateUrl: './mange-company.component.html',
@@ -9,35 +9,39 @@ import {UserService} from '../../services/user.service';
 export class MangeCompanyComponent implements OnInit {
 
   page = 2;
-  names: any;
-  codes: any;
-  exchanges: any;
-  profile: any;
-  constructor( private router: Router , private userService: UserService) {
+  infoList: any;
+  public companyName: any;
+  constructor( private router: Router , private manageCompanyService: ManageCompanyService) {
 
+    this.manageCompanyService.postManageCompany().subscribe(
+      data => {
+        console.log(JSON.stringify(data));
+        this.infoList = data;
+        this.companyName = this.infoList.companyName;
+      }
+    );
   }
 
   ngOnInit(): void {
-    this.userService.postManageCompany().subscribe(
-      data => {
-        console.log(JSON.stringify(data));
-        const info: any = data;
-        this.names = info.names;
-        this.codes = info.codes;
-        this.exchanges = info.exchanges;
-        this.profile = info.profile;
-      }
-    );
+    if (!sessionStorage.getItem('token')) {
+      this.router.navigate(['/sign-in']);
+    }
   }
   addCompany(): void {
     this.router.navigate(['/addCompany']);
   }
 
   editCompany(value: any): void {
-    this.router.navigate(['/editCompany']);
+    this.router.navigate(['/editCompany'],
+    {queryParams:
+      {companyName: value}
+    });
   }
-  onSubmit(value: any): void {
-    this.router.navigate(['/deleteCompany']);
+  deleteCompany(companyName, companyCode, exchangeId, brief): void {
+    this.router.navigate(['/deleteCompany'],
+    {queryParams:
+      {companyName, companyCode, exchangeId, brief}
+    });
   }
 
 }
